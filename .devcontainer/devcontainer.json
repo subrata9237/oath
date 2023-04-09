@@ -1,0 +1,33 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
+// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/go
+{
+	"name": "Go",
+	"dockerFile": "../Dockerfile",
+	"context": "..",
+	"runArgs": [
+		// Uncomment the next line to use a non-root user. See https://aka.ms/vscode-remote/containers/non-root-user.
+		// "-u", "1000",
+		"--cap-add=SYS_ADMIN",
+		"--device=/dev/fuse",
+		"--security-opt",
+		"seccomp=unconfined",
+		"-m",
+		"3g",
+		"-v",
+		"/root/"
+	],
+	// Uncomment the next line if you want to publish any ports.
+	// "appPort": [],
+	// Uncomment the next line to run commands after the container is created.
+	// "postCreateCommand": "go version",
+	// Uncomment the next line to use a non-root user. See https://aka.ms/vscode-remote/containers/non-root-user.
+	// "runArgs": [ "-u", "1000" ],
+	"appPort": "8080:8080",
+	"extensions": [
+		"ms-vscode.go",
+		"ms-vscode.cpptools"
+	],
+	"settings": {
+		"go.gopath": "/go"
+	}
+}
